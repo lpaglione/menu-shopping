@@ -1,0 +1,28 @@
+/*---------------------------------------->
+<!-- Laura Paglione (MENTOR)            -->
+<!-- NanoHacker Academy                 -->
+<!-- Fall 2016: Object oriented		    -->
+<!-- November 23, 2016	                -->
+<!--------------------------------------- */
+
+/* Stylesheet for Menu shopping app */
+
+/* Bootstrap styling */
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}

@@ -1,0 +1,106 @@
+<!---------------------------------------->
+<!-- Laura Paglione (MENTOR)			-->
+<!-- NanoHacker Academy					-->
+<!-- Fall 2016: Object oriented 		-->
+<!-- November 23, 2016					-->
+<!---------------------------------------->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Menu Shopping List</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="menu-shopping.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Custom stylesheet for this app -->
+	<link rel="stylesheet" type="text/css" href="menu-shopping.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Start the app -->
+  <script type="text/javascript">
+    const myApp = new MenuShopping("table#itemList");
+   </script>
+</head>
+
+<body>
+
+	<!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Menu Shopping App</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        	<ul class="nav navbar-nav navbar-right">
+        		<li class="active"><a href="#">Home</a></li>
+        		<li><a href="MSIngredients.html">Ingredients</a></li>
+        		<li><a href="MSMenus.html">Meals &amp; Menus</a></li>
+        		<li><a href="MSList.html">Shopping Lists</a></li>
+        	</ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Intro -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome!</h1>
+        <p>Use the Menu Shopping application to create shopping lists of the ingredients needed for your weekly meals. Manage your ingredient lists, meals, and weekly menus. View the ingredients needed to prepare the week's meals, and add the things not yet in your pantry to your weekly shopping list.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Application sections -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Ingredients</h2>
+          <p>Manage the ingredients that you will use in your meals and that you will shop for each week. View existing ingredients, and add new ones.</p>
+          <p><a class="btn btn-default" href="MSIngredients.html" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Meals &amp; Menus</h2>
+          <p>Manage your weekly menus and the meals included each day. For each meal, manage the needed ingredients to make sure you'll have it in your pantry when needed!</p>
+          <p><a class="btn btn-default" href="MSMenus.html" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Shopping list</h2>
+          <p>Prepare your weekly shopping list, and configure your shopping trip by managing the location of your needed ingredients.</p>
+          <p><a class="btn btn-default" href="MSList.html" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; 2016 PagsMenus, Inc.</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+</body>
+</html>
