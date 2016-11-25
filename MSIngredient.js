@@ -52,7 +52,9 @@ class MSIngredient {
 	// **************************************
 	save() {
 		this._cloudObj.save({
-			succes: (obj) => {},
+			success: (obj) => {
+				console.log("saved ingredient: " + this._cloudObj.get("name"))
+			},
 			error: (err) => {
 				console.log(err);
 			}
