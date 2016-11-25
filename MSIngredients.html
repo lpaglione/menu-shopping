@@ -12,24 +12,29 @@
 	<title>Menu Shopping List</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://cloudboost.io/js-sdk/cloudboost.js" ></script>
-	<link rel="stylesheet" type="text/css" href="menu-shopping.css">
   <script type="text/javascript" src="MSIngredient.js"></script>
 	<script type="text/javascript" src="menu-shopping.js"></script>
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-	<!-- Latest compiled and minified JavaScript -->
+	<!-- Latest compiled and minified Bootstrap JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" type="text/css" href="menu-shopping.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Bootstrap theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 
   <!-- Start the app -->
   <script type="text/javascript">
     const myApp = new MenuShopping();
-    myApp.initIngredientsPage("table#itemList");
-   </script>
+
+    //initialize the page
+    window.onload = function() {
+      myApp.initIngredientsPage("table#itemList");
+    }
+  </script>
 </head>
 
 <body>
@@ -66,7 +71,7 @@
     </div>
 
     <div class="container">
-      <div>
+      <!--<div>
         <div class="panel panel-primary">
           <div class="panel-heading">
             <h1 class="panel-title">Add new ingredient</h1>
@@ -80,23 +85,21 @@
               <div class="form-group">
                 <input type="text" placeholder="Ingredient description" class="form-control" id="ingDesc">
               </div>
-              <!--<button type="submit" class="btn btn-primary">Add ingredient</button>-->
-              <button type="submit" class="btn btn-primary" onclick="myApp.addIngredient('input#ingName', 'input#ingDesc')">Add ingredient</button>
-              <!--<script>myApp.listIngredients();</script>-->
+              <button type="submit" class="btn btn-primary" onclick="myApp.addIngredient($('input#ingName').val(), $('input#ingDesc').val())">Add ingredient</button>
             </form>
           </div>
-        </div>
+        </div>-->
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Saved ingredients</h3>
+            <h3 class="panel-title">Available ingredients</h3>
           </div>
           <div class="panel-body">
             <p>The following ingredients already exist and can be added to your meals.</p>
           </div>
             <table class="table" id="itemList">
               <tr>
-                <th>Name</th>
-                <th>Description</th>
+                <th>Name- OLD</th>
+                <th>Description - OLD</th>
               </tr>
             </table>
         </div>
