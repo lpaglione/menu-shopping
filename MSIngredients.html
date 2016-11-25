@@ -11,6 +11,7 @@
 	<meta charset="utf-8">
 	<title>Menu Shopping List</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cloudboost.io/js-sdk/cloudboost.js" ></script>
 	<link rel="stylesheet" type="text/css" href="menu-shopping.css">
   <script type="text/javascript" src="MSIngredient.js"></script>
 	<script type="text/javascript" src="menu-shopping.js"></script>
@@ -26,7 +27,8 @@
 
   <!-- Start the app -->
   <script type="text/javascript">
-    const myApp = new MenuShopping("table#itemList");
+    const myApp = new MenuShopping();
+    myApp.initIngredientsPage("table#itemList");
    </script>
 </head>
 
@@ -71,7 +73,7 @@
           </div>
           <div class="panel-body">
             <p>Type the basic information to add a new ingredient.</p>
-            <!--<form id="ingredientForm">-->
+            <form id="ingredientForm">
               <div class="form-group">
                 <input type="text" placeholder="Ingredient name" class="form-control" id="ingName">
               </div>
@@ -80,8 +82,8 @@
               </div>
               <!--<button type="submit" class="btn btn-primary">Add ingredient</button>-->
               <button type="submit" class="btn btn-primary" onclick="myApp.addIngredient('input#ingName', 'input#ingDesc')">Add ingredient</button>
-              <script>myApp.listIngredients();</script>
-            <!--</form>-->
+              <!--<script>myApp.listIngredients();</script>-->
+            </form>
           </div>
         </div>
         <div class="panel panel-default">
