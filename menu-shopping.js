@@ -13,42 +13,86 @@ CB.CloudApp.init('fhioibnbvdrp', '4bb21293-3165-4d27-9b74-e173bf153fa8');
 
 class MenuShopping {
 	constructor() {
-		this.appIngredients = [];
-		//this.tableIngredients = tableIngredients;
+		this.appIngredients = []; // In cache list of ingredients
 	}
 
-	initIngredientsPage(tableIngredients) {
-		this.listIngredients(tableIngredients);
+	initIngredientsPage(tableIDIngredients) {
+		this.listIngredients(tableIDIngredients);
 	}
 
 	addIngredient(name, description) {
 		console.log("In add ingredient function");
-		console.log($(name).val());
+		console.log(name);
 
-		// Create a new incredient object and save it to the database
+		// Check if the ingredient already exists
+		let query = new CB.CloudQuery("MSIngredient");
+		query.equalTo('name', name); //is the name already in the database?
+		query.find({
+			success: function(list) {
+				alert(name+" already exists in the Available ingredients list.");
+			},
+			error: function(err) {
+				//item doesn't already exist. Add it!
 
-		const ingredientCloudObj = new CB.CloudObject("MSIngredient");
-		const ingredientObj = new MSIngredient($(name).val(), $(description).val(), ingredientCloudObj);
-		ingredientObj.save();
+				// Create a new ingredient object and save it to the database
+				let ingredientCloudObj = new CB.CloudObject("MSIngredient");
+				let ingredientObj = new MSIngredient(name, description, ingredientCloudObj);
+				ingredientObj.save();
 
-		// Add it to the active appIngredents list
-		this.appIngredients.push(ingredientObj);
+				// Add it to the active appIngredents list
+				this.appIngredients.push(ingredientObj);
 
-		//this.appIngredients.push(new MSIngredient($(name).val(), $(description).val()));
-		console.log(this.appIngredients);
+				console.log(this.appIngredients);
+			}
+		});
 	}
 
-	listIngredients(tableIngredients) { 
-		console.log("in the list");
-		//clear the table and replace the headers
-		$(tableIngredients+" tbody").remove();
-		$(tableIngredients).append(`<tr><th>Name</th><th>Description</th></tr>`)
+	listIngredients(tableIDIngredients) { 
+		console.log(this.appIngredients);
 
-		for (let z=0; z<this.appIngredients.length; z++) {
-			console.log(this.appIngredients[z].name);
-			$(tableIngredients).append(`<tr><td>${this.appIngredients[z].name}</td><td>${this.appIngredients[z].description}</td></tr>`)
+		// see if the list of ingredients is already in the MenuShopping object
+		if (this.appIngredients.length == 0) {
+			console.log("calling the getAllDBIngredients function")
+			this.appIngredients = this.getAllDBIngredients();
 		}
 
+		// Now display the ingredient list in the table with the ID tableIDIngredients
+		console.log("in the list");
+		//clear the table and replace the headers
+		$(tableIDIngredients+" tbody").remove();
+		$(tableIDIngredients).append(`<tr><th>Name</th><th>Description</th></tr>`);
+
+		console.log(this.appIngredients);
+
+		for (let z=0; z<this.appIngredients.length; z++) {
+			console.log("Name: " + this.appIngredients[z].name + " Description: " + this.appIngredients[z].description);
+			$(tableIDIngredients).append(`<tr><td>${this.appIngredients[z]._name}</td><td>${this.appIngredients[z]._description}</td></tr>`);
+		}
+
+	}
+
+	getAllDBIngredients() {
+		console.log("In-cache list is empty - loading from DB")
+		let ingredientList = [];
+
+		let query = new CB.CloudQuery("MSIngredient");
+		query.exists('name');
+		query.find({
+			success: function(list) {
+				// iterate through the list to add the items from the database to the object
+				console.log("getting items from the database - " + list.length + " items available")
+				for (let z=0; z<list.length; z++) {
+					let ingredientObj = new MSIngredient(list[z].get('name'), list[z].get('description'), list[z]);
+					ingredientList.push(ingredientObj);
+				}
+
+				console.log(ingredientList)
+				return ingredientList;
+			},
+			error: function(err) {
+				console.log(err);
+			}
+		});
 	}
 }
 
