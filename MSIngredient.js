@@ -32,7 +32,6 @@ class MSIngredient {
 	set name(name) {
 		this._name = name;
 		this._cloudObj.set("name", name);
-		console.log("I'm setting the name!")
 	}
 
 	// **************************************
