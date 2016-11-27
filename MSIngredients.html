@@ -29,11 +29,6 @@
   <!-- Start the app -->
   <script type="text/javascript">
     const myApp = new MenuShopping();
-
-    //initialize the page
-    window.onload = function() {
-      myApp.initIngredientsPage("table#itemList");
-    }
   </script>
 </head>
 
@@ -85,7 +80,10 @@
               <div class="form-group">
                 <input type="text" placeholder="Ingredient description" class="form-control" id="ingDesc">
               </div>
-              <button type="submit" class="btn btn-primary" onclick="myApp.addIngredient($('input#ingName').val(), $('input#ingDesc').val())">Add ingredient</button>
+              <div class="form-group">
+                <input type="url" placeholder="Ingredient image URL" class="form-control" id="ingImage">
+              </div>
+              <button type="submit" class="btn btn-primary" onclick="myApp.addIngredient($('input#ingName').val(), $('input#ingDesc').val(), $('input#ingImage').val())">Add ingredient</button>
             </form>
           </div>
         </div>
@@ -95,13 +93,9 @@
           </div>
           <div class="panel-body">
             <p>The following ingredients already exist and can be added to your meals.</p>
+            <div class="media-list" id="ingredientList">
+              <!-- Ingredients will be loaded here from the app -->
           </div>
-            <table class="table" id="itemList">
-              <tr>
-                <th>Name- OLD</th>
-                <th>Description - OLD</th>
-              </tr>
-            </table>
         </div>
       </div>
 
