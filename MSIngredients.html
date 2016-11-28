@@ -58,14 +58,14 @@
     </nav>
 
     <!-- Intro -->
-    <div class="jumbotron">
+    <div class="jumbotron jumbotron-fluid" id="ingred">
       <div class="container">
-        <h1>Ingredients</h1>
-        <p>Manage the ingredients that you will use in your meals and that you will shop for each week. View existing ingredients, and add new ones.</p>
       </div>
     </div>
 
     <div class="container">
+      <h1>Ingredients</h1>
+      <p>Manage the ingredients that you will use in your meals and that you will shop for each week. View existing ingredients, and add new ones.</p>
       <div>
         <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#addIngredient"><span class='glyphicon glyphicon glyphicon glyphicon-plus' aria-hidden='true'></span> Add ingredient</button>
 
@@ -100,28 +100,6 @@
             </div>
           </div>
         </div>
-
-        <!-- OLD PANEL INPUT!
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h1 class="panel-title">Add new ingredient</h1>
-          </div>
-          <div class="panel-body">
-            <p>Type the basic information to add a new ingredient.</p>
-            <form id="ingredientForm">
-              <div class="form-group">
-                <input type="text" placeholder="Ingredient name" class="form-control" id="ingName">
-              </div>
-              <div class="form-group">
-                <input type="text" placeholder="Ingredient description" class="form-control" id="ingDesc">
-              </div>
-              <div class="form-group">
-                <input type="url" placeholder="Ingredient image URL" class="form-control" id="ingImage">
-              </div>
-              <button type="submit" class="btn btn-primary" onclick="myApp.addIngredient($('input#ingName').val(), $('input#ingDesc').val(), $('input#ingImage').val())">Add ingredient</button>
-            </form>
-          </div>
-        </div>-->
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title">Available ingredients</h3>
