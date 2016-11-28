@@ -56,6 +56,20 @@ class MenuShopping {
 	}
 
 	// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+	// FUNCTION: removeIngredient
+	// Removes a single ingredient from the appIngredient list, the 
+	// database, and the display on the ingredient list page
+	// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+	// TO DO: add this function
+
+	// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+	// FUNCTION: editIngredient
+	// Edit an ingredient on the appIngredient list, the 
+	// database, and the display on the ingredient list page
+	// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+	// TO DO: add this function
+
+	// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 	// FUNCTION: displayList
 	// Displays all of the ingredients in the list as Bootstrap
 	// media objects to location identified by ID #ingredientList
