@@ -1,0 +1,192 @@
+<!---------------------------------------->
+<!-- Laura Paglione (MENTOR)			-->
+<!-- NanoHacker Academy					-->
+<!-- Fall 2016: Object oriented 		-->
+<!-- November 23, 2016					-->
+<!---------------------------------------->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Menu Shopping List</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cloudboost.io/js-sdk/cloudboost.js" ></script>
+  <script type="text/javascript" src="MSIngredient.js"></script>
+	<script type="text/javascript" src="menu-shopping.js"></script>
+
+	<!-- Latest compiled and minified Bootstrap JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" type="text/css" href="menu-shopping.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Bootstrap theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+  <!-- Start the app -->
+  <script type="text/javascript">
+    const myApp = new MenuShopping();
+  </script>
+</head>
+
+<body>
+
+	<!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Menu Shopping App</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        	<ul class="nav navbar-nav navbar-right">
+        		<li><a href="menu-shopping.html">Home</a></li>
+        		<li><a href="MSIngredients.html">Ingredients</a></li>
+        		<li class="active"><a href="#">Meals &amp; Menus</a></li>
+        		<li><a href="MSList.html">Shopping Lists</a></li>
+        	</ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Intro -->
+    <div class="jumbotron jumbotron-fluid" id="menu">
+      <div class="container">
+      </div>
+    </div>
+
+    <div class="container">
+      <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#editMenu"><span class='glyphicon glyphicon glyphicon glyphicon-plus' aria-hidden='true'></span> Edit menu</button>
+
+      <!-- Add ingredient modal -->
+      <div class="modal fade" id="editMenu" tabindex="-1" role="dialog" aria-labelledby="editMenuLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span>
+              </button>
+              <h4 class="modal-title" id="editMenuLabel">Edit meun</h4>
+            </div>
+            <div class="modal-body">
+              <p>Select the menu item that you would like to edit.</p>
+              <div class="radio">
+                <label><input type="radio" name="optradio">meal 1</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="optradio">meal 2</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="optradio">meal 3</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="optradio">meal 4</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="optradio">meal 5</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="optradio">meal 6</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="optradio">meal 7</label>
+              </div>
+              <form id="ingredientForm">
+                <div class="form-group">
+                  <input type="text" placeholder="Ingredient name" class="form-control" id="ingName">
+                </div>
+                <div class="form-group">
+                  <input type="text" placeholder="Ingredient description" class="form-control" id="ingDesc">
+                </div>
+                <div class="form-group">
+                  <input type="url" placeholder="Ingredient image URL" class="form-control" id="ingImage">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="myApp.addIngredient($('input#ingName').val(), $('input#ingDesc').val(), $('input#ingImage').val())"><span class="glyphicon glyphicon glyphicon-floppy-disk"></span> Add ingredient</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <h1>Meals &amp; Menus</h1>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Current Menu</h3>
+        </div>
+        <div class="panel-body">
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div><h2>week 1</h2></div>
+            </div>
+          </div>
+          <div class ="row">
+            <div class="col-md-2">
+              <a href="#"><div><strong>Monday: </strong>Tuna Cassorole</div></a>
+            </div>
+            <div class="col-md-2">
+              <a href="#"><div><strong>Tuesday: </strong>Mostaciolli</div></a>
+            </div>
+            <div class="col-md-2">
+              <a href="#"><div><strong>Wednesday: </strong>Hamburger</div></a>
+            </div>
+            <div class="col-md-2">
+              <a href="#"><div><strong>Thursday: </strong>Chicken Picatta</div></a>
+            </div>
+            <div class="col-md-2">
+              <a href="#"><div><strong>Friday: </strong><em>Improvise</em></div></a>
+            </div>
+            <div class="col-md-2">
+              <a href="#"><div><strong>Saturday: </strong>Steak with rice</div></a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <a href="#"><div><strong>Sunday: </strong>Stuffed Shells</div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">About this meal</h3>
+        </div>
+        <div class="panel-body">
+          <div class="media-list" id="mealDescription">
+            <!-- Meal will be loaded here from the app -->
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; 2016 PagsMenus, Inc.</p>
+      </footer>
+    </div> <!-- /container -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    IE10 viewport hack for Surface/desktop Windows 8 bug
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+
+</body>
+</html>
