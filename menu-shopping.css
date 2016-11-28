@@ -1,8 +1,8 @@
 /*---------------------------------------->
 <!-- Laura Paglione (MENTOR)            -->
 <!-- NanoHacker Academy                 -->
-<!-- Fall 2016: Object oriented		    -->
-<!-- November 23, 2016	                -->
+<!-- Fall 2016: Object oriented       -->
+<!-- November 23, 2016                  -->
 <!--------------------------------------- */
 
 /* Stylesheet for Menu shopping app */
@@ -30,30 +30,30 @@ body {
 }
 
 .jumbotron#home {
-	background-image: url("http://static1.businessinsider.com/image/52bd9d346bb3f71915ce32f7/heres-why-shopping-the-perimeter-at-the-grocery-store-doesnt-work.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 200px;
-	color: #ffffff;
-	/*opacity: 0.5;*/
+  background-image: url("http://static1.businessinsider.com/image/52bd9d346bb3f71915ce32f7/heres-why-shopping-the-perimeter-at-the-grocery-store-doesnt-work.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+  color: #ffffff;
+  /*opacity: 0.5;*/
 }
 
 
 .jumbotron#ingred {
-	background: url("http://whole9life.com/wp-content/uploads/2011/01/Paleo-Shopping.jpg") no-repeat center;
-	height: 200px;
+  background: url("http://whole9life.com/wp-content/uploads/2011/01/Paleo-Shopping.jpg") no-repeat center;
+  height: 200px;
 }
 
 .jumbotron#menu {
-	background: url("http://image.shutterstock.com/z/stock-vector-restaurant-menu-design-183705032.jpg") no-repeat;
-	background-size: cover;
-	height: 200px;
+  background: url("http://image.shutterstock.com/z/stock-vector-restaurant-menu-design-183705032.jpg") no-repeat;
+  background-size: cover;
+  height: 200px;
 }
 
 .weekHeader {
-	-ms-transform: rotate(270deg);
-	-webkit-transform: rotate(270deg);
-	transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
 
 }
 
